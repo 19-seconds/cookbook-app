@@ -1,0 +1,24 @@
+<h1>All Recipes</h1>
+
+
+<table class="table">
+  <tr>
+    <th>Title</th>
+    <th>Ingredients</th>
+    <th>Directions</th>
+    <th>Prep Time</th>
+    <th>Image</th>
+  </tr>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td>Title: <%= recipe.title %></td>
+        <td>Ingredients: <%= recipe.ingredients %></td>
+        <td>Directions: <%= recipe.directions %></td>
+        <td>Prep Time: <%= recipe.prep_time %></td>
+        <td><img src="<%= recipe.image %>"></td>
+      </tr>
+    <% end %>
+</table>
+
+
+
