@@ -11,7 +11,7 @@
   </tr>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td>Title: <%= recipe.title %></td>
+        <td>Title:<a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></td>
         <td>Ingredients: <%= recipe.ingredients %></td>
         <td>Directions: <%= recipe.directions %></td>
         <td>Prep Time: <%= recipe.prep_time %></td>
