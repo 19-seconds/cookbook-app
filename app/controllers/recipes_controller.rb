@@ -19,4 +19,17 @@ class RecipesController < ApplicationController
     recipe = Recipe.new({title: title, ingredients: ingredients, prep_time: prep_time, image: image  })
     recipe.save
   end
+
+  def edit
+    @recipe = Recipe.find_by(id: params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.title = params[:title]
+    @recipe.ingredients = params[:ingredients]
+    @recipe.prep_time = params[:prep_time]
+    @recipe.image = params[:image]
+    @recipe.save
+  end
 end
