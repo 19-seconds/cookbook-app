@@ -6,8 +6,5 @@
 <h2><%= @recipe.prep_time %></h2>
 <img src="<%= @recipe.image %>">
 
-
-<%= form_tag "/recipes/#{@recipe.id}", method: :delete do %>
-  <input type="submit" value="Destroy Recipe">
-<% end %>
+<%= button_to "Delete", "/recipes/#{@recipe.id}", method: :delete %>
 

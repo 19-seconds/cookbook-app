@@ -32,4 +32,9 @@ class RecipesController < ApplicationController
     @recipe.image = params[:image]
     @recipe.save
   end
+
+  def destroy
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.destroy
+  end
 end
