@@ -5,3 +5,9 @@
 <h2><%= @recipe.directions %></h2>
 <h2><%= @recipe.prep_time %></h2>
 <img src="<%= @recipe.image %>">
+
+
+<%= form_tag "/recipes/#{@recipe.id}", method: :delete do %>
+  <input type="submit" value="Destroy Recipe">
+<% end %>
+
