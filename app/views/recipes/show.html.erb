@@ -1,9 +1,14 @@
 <h1>Recipe</h1>
 
 <h2><%= @recipe.title %></h2>
-<h2><%= @recipe.ingredients %></h2>
+<ul>
+  <% @recipe.ingredient_list.each do |ingredient| %>
+    <li><%= ingredient %></li>
+  <% end %>
+</ul>
 <h2><%= @recipe.directions %></h2>
-<h2><%= @recipe.prep_time %></h2>
+<h2>Prep time: <%= @recipe.friendly_prep_time %></h2>
+<h2><%= @recipe.friendly_created_at %></h2>
 <img src="<%= @recipe.image %>">
 
 <%= button_to "Edit", "/recipes/#{@recipe.id}/edit", method: :get %>
