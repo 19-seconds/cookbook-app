@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
     recipe.prep_time = params[:prep_time]
     recipe.image = params[:image]
     recipe.save
+    flash[:success] = "Recipe Updated"
     redirect_to "/recipes/#{recipe.id}"
   end
 
