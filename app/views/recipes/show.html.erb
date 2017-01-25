@@ -6,5 +6,6 @@
 <h2><%= @recipe.prep_time %></h2>
 <img src="<%= @recipe.image %>">
 
+<%= button_to "Edit", "/recipes/#{@recipe.id}/edit", method: :get %>
 <%= button_to "Delete", "/recipes/#{@recipe.id}", method: :delete %>
 

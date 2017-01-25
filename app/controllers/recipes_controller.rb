@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
     image = params[:image]
     recipe = Recipe.new({title: title, ingredients: ingredients, prep_time: prep_time, image: image  })
     recipe.save
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def edit
@@ -25,16 +26,18 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe.title = params[:title]
-    @recipe.ingredients = params[:ingredients]
-    @recipe.prep_time = params[:prep_time]
-    @recipe.image = params[:image]
-    @recipe.save
+    recipe = Recipe.find_by(id: params[:id])
+    recipe.title = params[:title]
+    recipe.ingredients = params[:ingredients]
+    recipe.prep_time = params[:prep_time]
+    recipe.image = params[:image]
+    recipe.save
+    redirect_to "/recipes/#{recipe.id}"
   end
 
   def destroy
     @recipe = Recipe.find_by(id: params[:id])
     @recipe.destroy
+    redirect_to "/recipes"
   end
 end
