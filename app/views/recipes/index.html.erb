@@ -1,24 +1,17 @@
 <h1>All Recipes</h1>
 
-
-<table class="table">
-  <tr>
-    <th>Title</th>
-    <th>Ingredients</th>
-    <th>Directions</th>
-    <th>Prep Time</th>
-    <th>Image</th>
-  </tr>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td>Title:<a href="/recipes/<%= recipe.id %>"><%= recipe.title %></a></td>
-        <td>Ingredients: <%= recipe.ingredients %></td>
-        <td>Directions: <%= recipe.directions %></td>
-        <td>Prep Time: <%= recipe.prep_time %></td>
-        <td><img src="<%= recipe.image %>"></td>
-      </tr>
-    <% end %>
-</table>
-
-
-
+<div class="row">
+  <% @recipes.each_slice(3) do |three_recipes| %>
+    <div class="row">
+        <% three_recipes.each do |recipe| %>
+          <div class="col-md-4">
+            <h2><%= link_to recipe.title, "/recipes/#{recipe.id}" %></h2>
+            <img src="<%= recipe.image %>" class="img-responsive">
+            <h2>Ingredients: <%= recipe.ingredients %></h2>
+            <h2>Prep time: <%= recipe.prep_time %></h2>
+            <h2>Directions: <%= recipe.directions %></h2>
+          </div>
+        <% end %>
+    </div>
+  <% end %>
+</div>
