@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
     image = params[:image]
     recipe = Recipe.new({title: title, ingredients: ingredients, prep_time: prep_time, image: image  })
     recipe.save
+    flash[:success] = "Recipe Created"
     redirect_to "/recipes/#{recipe.id}"
   end
 
@@ -37,8 +38,9 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe.destroy
+    recipe = Recipe.find_by(id: params[:id])
+    recipe.destroy
+    flash[:warning] = "Recipe Deleted"
     redirect_to "/recipes"
   end
 end
