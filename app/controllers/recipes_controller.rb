@@ -1,7 +1,12 @@
 class RecipesController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    sort_variable = params[:sort]
+    if sort_variable
+      @recipes = Recipe.all.order(sort_variable)
+    else
+      @recipes = Recipe.all
+    end
   end
 
   def show
