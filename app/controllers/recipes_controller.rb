@@ -1,9 +1,8 @@
 class RecipesController < ApplicationController
 
   def index
-    sort_variable = params[:sort]
-    if sort_variable
-      @recipes = Recipe.all.order(sort_variable)
+    if params[:prep_time]
+      @recipes = Recipe.all.order(prep_time: params[:prep_time])
     else
       @recipes = Recipe.all
     end
