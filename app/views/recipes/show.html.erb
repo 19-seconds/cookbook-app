@@ -9,7 +9,7 @@
 <h2><%= @recipe.directions %></h2>
 <h2>Prep time: <%= @recipe.friendly_prep_time %></h2>
 <h2><%= @recipe.friendly_created_at %></h2>
-<img src="<%= @recipe.image %>">
+<img class="show-images" src="<%= @recipe.image %>">
 
 <%= button_to "Edit", "/recipes/#{@recipe.id}/edit", method: :get %>
 <%= button_to "Delete", "/recipes/#{@recipe.id}", method: :delete %>
