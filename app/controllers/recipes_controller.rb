@@ -13,6 +13,10 @@ class RecipesController < ApplicationController
   end
 
   def new
+    unless current_user
+      flash[:message] = "Only signed in cooks can create recipes!"
+      redirect_to "/signup"
+    end
   end
 
   def create
@@ -20,7 +24,7 @@ class RecipesController < ApplicationController
     ingredients = params[:ingredients]
     prep_time = params[:prep_time]
     image = params[:image]
-    recipe = Recipe.new({title: title, ingredients: ingredients, prep_time: prep_time, image: image  })
+    recipe = Recipe.new({title: title, ingredients: ingredients, prep_time: prep_time, image: image, user_id: current_user.id })
     recipe.save
     flash[:success] = "Recipe Created"
     redirect_to "/recipes/#{recipe.id}"

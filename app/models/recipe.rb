@@ -1,4 +1,5 @@
 class Recipe < ApplicationRecord
+  belongs_to :user
 
   def ingredient_list
     ingredients.split(", ")

@@ -1,5 +1,5 @@
 <h1>Recipe</h1>
-<h2><%= @recipe.chef %></h2>
+<h2><%= @recipe.user.name %></h2>
 <h2><%= @recipe.title %></h2>
 <ul>
   <% @recipe.ingredient_list.each do |ingredient| %>
